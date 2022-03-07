@@ -1,0 +1,106 @@
+*{
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+    font-family: 'Orbitron', sans-serif;
+}
+main{
+    position:relative;
+    grid-area: main;
+}
+body{
+    display:grid;
+    grid-template-rows:auto;
+    grid-template-areas:"sidebar main";
+    grid-template-columns: auto 1fr;
+    /* flex-direction: column; */
+    height: 100vh;
+    width: 100%;
+}
+
+header{
+    display:flex;       
+    flex-direction: column;
+    height: 30%;
+    width: 100%;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3a4149;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 0% 100%);
+}
+
+header h1{
+    color:whitesmoke;
+    padding-bottom: 2em;
+}
+
+nav{
+    margin-left: auto;
+    margin-right: 1em;
+    margin-top: 0.7em;
+}
+
+nav a{
+    color:white;
+    text-decoration: none;
+    transition: color 100ms ease-out;
+}
+
+nav a:hover{
+    color:#E26B4F;
+    
+}
+
+.article{
+    position: relative;
+    display: flex;
+    margin-inline:5em;
+    margin-block: 2em;
+    border: 2px solid black;
+    border-radius: 5px;
+    height:300px;
+}
+
+.article::after{
+    position: absolute;
+    content:"";
+    top:0;
+    bottom:0;
+    width:1.5px;
+    right: calc(200px + 1em);
+    background: black;
+}
+
+.article .content{
+    padding-inline: 1em ;
+    padding-block: .5em;
+
+}
+.article h1{
+    color: #E26B4F;
+}
+
+.picture{
+    background-image: url("hunting1.jpg");
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: 300%;
+}
+
+footer{
+    position: relative;
+    height: 30%;
+    width: 100%;
+    background-color: #3a4149;
+    clip-path: polygon(0% 60%, 100% 0%, 100% 100%, 0% 100%)
+}
+
+.Sidebar{
+    display: flex;
+    width:400px;
+    background-color: #6B7888;
+    grid-area: sidebar;
+}
