@@ -5,7 +5,9 @@
     font-family: 'Orbitron', sans-serif;
 }
 main{
-    position:relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
     grid-area: main;
 }
 body{
@@ -13,7 +15,6 @@ body{
     grid-template-rows:auto;
     grid-template-areas:"sidebar main";
     grid-template-columns: auto 1fr;
-    /* flex-direction: column; */
     height: 100vh;
     width: 100%;
 }
@@ -21,7 +22,8 @@ body{
 header{
     display:flex;       
     flex-direction: column;
-    height: 30%;
+    min-height: 200px;
+    height: auto;
     width: 100%;
     text-align: center;
     justify-content: space-between;
@@ -32,20 +34,33 @@ header{
 
 header h1{
     color:whitesmoke;
-    padding-bottom: 2em;
+    padding-bottom: 3.5em;
 }
 
 nav{
     margin-left: auto;
     margin-right: 1em;
     margin-top: 0.7em;
+    font-size: small;
 }
 
 nav a{
+    position: relative;
+    margin: 3px;
     color:white;
     text-decoration: none;
     transition: color 100ms ease-out;
 }
+
+nav a:not(:first-child)::after{
+    position: absolute;
+    content:"";
+    top:0;
+    bottom:0;
+    width:1.5px;
+    left:-5px;
+    background: white;
+    }
 
 nav a:hover{
     color:#E26B4F;
@@ -59,20 +74,21 @@ nav a:hover{
     margin-block: 2em;
     border: 2px solid black;
     border-radius: 5px;
-    height:300px;
+    min-height:300px;
 }
 
-.article::after{
+.article .content::after{
     position: absolute;
     content:"";
     top:0;
     bottom:0;
     width:1.5px;
-    right: calc(200px + 1em);
+    right:0;
     background: black;
 }
 
 .article .content{
+    position: relative;
     padding-inline: 1em ;
     padding-block: .5em;
 
@@ -84,23 +100,79 @@ nav a:hover{
 .picture{
     background-image: url("hunting1.jpg");
     height: 100%;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: center left;
-    background-size: 300%;
+    min-width: 30%;
+    transition: background-image 750ms ease-in;
+    -webkit-transition: background-image 500ms ease-in;
 }
 
 footer{
     position: relative;
-    height: 30%;
+    min-height: 200px;
+    height: auto;
     width: 100%;
     background-color: #3a4149;
     clip-path: polygon(0% 60%, 100% 0%, 100% 100%, 0% 100%)
 }
 
-.Sidebar{
+.sidebar{
     display: flex;
+    flex-direction: column;
+    position: relative;
     width:400px;
-    background-color: #6B7888;
+    background-color:darkgray;
     grid-area: sidebar;
+    gap:2em;
+    padding:1em;
+    align-items: center;
+    justify-content: center ;
 }
+
+.sidebar h1{
+    width: 100%;
+    color:#3a4149;
+    align-items: center;
+    text-align: center;
+    padding-top: 0.2em;
+}
+
+.sidebar>div>div{
+    display:flex;
+    margin:auto;
+    height:90%;
+    width:90%;
+    background-color: lightgray;
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: cover;
+   
+}
+
+.sidebar>div{
+    display:flex;
+    width: 80%;
+    height:100%;
+    background: #3a4149 ;
+    transition:background-color 500ms ease-in-out;
+}
+
+.sidebar>div:hover{
+    background-color:whitesmoke;
+}
+
+.one{
+    background-image:url(hunting1.jpg);
+}
+
+.two{
+    background-image:url(hunting2.jpg);
+}
+
+.three{
+    background-image:url(hunting3.jpg);
+}
+
+.four{
+    background-image:url(hunting4.jpg);
+}
+
+
